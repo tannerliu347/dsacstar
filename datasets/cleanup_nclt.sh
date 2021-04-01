@@ -4,7 +4,8 @@ then
     echo "There are exisitng files in nclt. Are you sure you want to delete them? (Y/n)"
     read -p "" confirm
     case "$confirm" in [yY])
-        rm -rf "./nclt/*"
+        echo "Removing"
+        rm -rf ./nclt/*
         ;;
     *)
         exit 1
@@ -21,3 +22,4 @@ mkdir ./nclt/test
 mkdir ./nclt/test/rgb
 mkdir ./nclt/test/poses
 mkdir ./nclt/test/calibration
+echo "Done"
