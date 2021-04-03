@@ -82,59 +82,60 @@ H_rob_lb3 = ssc_to_homo(x_rob_lb3)
 H_c_lb3 = np.linalg.inv(H_lb3_c)
 H_lb3_rob = np.linalg.inv(H_rob_lb3)
 
-# trainSplit = ["2012-01-08", "2012-03-17", "2012-10-28", "2012-11-04"]
-# testSplit = ["2013-04-05"]
-# print(os.listdir(src_folder))
-# sampled_image_csv = []
-# img_target_folder = f'{target_folder}/train/rgb'
-# cali_target_folder = f'{target_folder}/train/calibration'
-# poses_target_folder = f'{target_folder}/train/poses'
+trainSplit = ["2012-01-08", "2012-03-17", "2012-10-28", "2012-11-04"]
+testSplit = ["2013-04-05"]
+print(os.listdir(src_folder))
+sampled_image_csv = []
+img_target_folder = f'{target_folder}/train/rgb'
+cali_target_folder = f'{target_folder}/train/calibration'
+poses_target_folder = f'{target_folder}/train/poses'
 
-# for train_seq in tqdm(trainSplit):
-#     current_seq_src = f'{src_folder}/{train_seq}'
-#     # loads ground truth
-#     current_gt = np.loadtxt(f'{current_seq_src}/groundtruth_{train_seq}.csv', delimiter=',')
-#     current_gt = current_gt[(current_gt[:,2] >= x_l_bound) & (current_gt[:,2] <= x_u_bound) \
-#         & (current_gt[:,1] <= y_u_bound) & (current_gt[:,1] >= y_l_bound)]
+for train_seq in tqdm(trainSplit):
+    current_seq_src = f'{src_folder}/{train_seq}'
+    # loads ground truth
+    current_gt = np.loadtxt(f'{current_seq_src}/groundtruth_{train_seq}.csv', delimiter=',')
+    current_gt = current_gt[(current_gt[:,2] >= x_l_bound) & (current_gt[:,2] <= x_u_bound) \
+        & (current_gt[:,1] <= y_u_bound) & (current_gt[:,1] >= y_l_bound)]
 
-#     current_img_folder = f'{current_seq_src}/lb3/Cam1'
-#     img_list = [os.path.splitext(filename)[0] for filename in os.listdir(current_img_folder)]
-#     print(np.array(img_list, dtype=int))
+    current_img_folder = f'{current_seq_src}/lb3/Cam1'
+    img_list = [os.path.splitext(filename)[0] for filename in os.listdir(current_img_folder)]
+    print(np.array(img_list, dtype=int))
     
-#     # use np.arange to approximate sampling, since cam and gt are async
-#     sample_idx = np.arange(0, current_gt.shape[0]-1, int(current_gt.shape[0]/train_size))
-#     img_to_sample = current_gt[sample_idx, 0]
-#     img_to_sample = img_to_sample[:train_size]
+    # use np.arange to approximate sampling, since cam and gt are async
+    sample_idx = np.arange(0, current_gt.shape[0]-1, int(current_gt.shape[0]/train_size))
+    img_to_sample = current_gt[sample_idx, 0]
+    img_to_sample = img_to_sample[:train_size]
     
-#     # with open('sampled_image.csv', 'w', newline='') as csvfile:
-#     #     csv_writer = csv.writer(csvfile, delimiter=',')
-#         # enumerate all samples, find nearest in images
-#         # save to rgb, calibration, poses
-#     pbar = tqdm(total=train_size)
-#     for idx, img_ts_expected in enumerate(img_to_sample):
-#         img_ts = nearest(img_ts_expected, img_list)
-#         img_src = f'{current_img_folder}/{img_ts}.tiff'
-#         frame_name = f'{train_seq}_{img_ts}'
-#         img_dst = f'{img_target_folder}/{frame_name}.color.png'
-#         # save rgb
-#         save_img(img_src, img_dst)
-#         sampled_image_csv = [frame_name, str(current_gt[sample_idx[idx], 2]), \
-#             str(current_gt[sample_idx[idx], 1]), str(-current_gt[sample_idx[idx], 3]), \
-#                 str(current_gt[sample_idx[idx], 4]), str(current_gt[sample_idx[idx], 5]), \
-#                     str(current_gt[sample_idx[idx], 6])] #x y -z r p y
-#         # csv_writer.writerow(sampled_image_csv)
-#         # save poses
-#         x_rob = current_gt[sample_idx[idx], :]
-#         H_rob = ssc_to_homo(x_rob)
-#         H_c = H_c_lb3 @ H_lb3_rob @ H_rob
-#         np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_rob)
-#         # save calibration
-#         np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength]))
-#         pbar.update(1)
-#     pbar.close()
+    # with open('sampled_image.csv', 'w', newline='') as csvfile:
+    #     csv_writer = csv.writer(csvfile, delimiter=',')
+        # enumerate all samples, find nearest in images
+        # save to rgb, calibration, poses
+    pbar = tqdm(total=train_size)
+    for idx, img_ts_expected in enumerate(img_to_sample):
+        img_ts = nearest(img_ts_expected, img_list)
+        img_src = f'{current_img_folder}/{img_ts}.tiff'
+        frame_name = f'{train_seq}_{img_ts}'
+        img_dst = f'{img_target_folder}/{frame_name}.color.png'
+        # save rgb
+        save_img(img_src, img_dst)
+        sampled_image_csv = [frame_name, str(current_gt[sample_idx[idx], 2]), \
+            str(current_gt[sample_idx[idx], 1]), str(-current_gt[sample_idx[idx], 3]), \
+                str(current_gt[sample_idx[idx], 4]), str(current_gt[sample_idx[idx], 5]), \
+                    str(current_gt[sample_idx[idx], 6])] #x y -z r p y
+        # csv_writer.writerow(sampled_image_csv)
+        # save poses
+        x_rob = [current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 1], -current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
+        H_rob = ssc_to_homo(x_rob)
+        H_c = H_c_lb3 @ H_lb3_rob @ H_rob
+        np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_rob)
+        # save calibration
+        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength]))
+        pbar.update(1)
+    pbar.close()
 
 ########################################################################################################
 # test set generate
+print("test set")
 testSplit = ["2013-04-05"]
 # print(os.listdir(src_folder))
 img_target_folder = f'{target_folder}/test/rgb'
@@ -175,7 +176,7 @@ for train_seq in tqdm(testSplit):
                     str(current_gt[sample_idx[idx], 6])] #x y -z r p y
         # csv_writer.writerow(sampled_image_csv)
         # save poses
-        x_rob = current_gt[sample_idx[idx], :]
+        x_rob = [current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 1], -current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
         H_rob = ssc_to_homo(x_rob)
         H_c = H_c_lb3 @ H_lb3_rob @ H_rob
         np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_rob)
