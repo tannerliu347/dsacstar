@@ -5,6 +5,8 @@ import cv2
 import csv
 from tqdm import tqdm
 
+img_scale = 1
+
 def mkdir(directory):
 	"""Checks whether the directory exists and creates it if necessacy."""
 	if not os.path.exists(directory):
@@ -22,10 +24,15 @@ def nearest(ts, img_list):
     return min_ts
 
 def save_img(src, des):
-    """ rotates and saves img to des"""
+    """rescale height to 480"""
+    global img_scale
     img = cv2.imread(src)
-    img_rot = cv2.rotate(img,rotateCode=cv2.ROTATE_90_CLOCKWISE)
-    cv2.imwrite(des, img_rot)
+    src_height = int(img.shape[0])
+    src_width = int(img.shape[1])
+    new_height = 480
+    img_scale =  new_height / src_height
+    img_new = cv2.resize(img, (int(src_width / src_height * new_height), new_height))
+    cv2.imwrite(des, img_new)
 
 def ssc_to_homo(ssc):
 
@@ -83,9 +90,10 @@ H_c_lb3 = np.linalg.inv(H_lb3_c)
 H_lb3_rob = np.linalg.inv(H_rob_lb3)
 
 trainSplit = ["2012-01-08", "2012-03-17", "2012-10-28", "2012-11-04"]
-testSplit = ["2013-04-05"]
-print(os.listdir(src_folder))
-sampled_image_csv = []
+# trainSplit = ["2012-01-08"]
+# testSplit = ["2013-04-05"]
+# print(os.listdir(src_folder))
+# sampled_image_csv = []
 img_target_folder = f'{target_folder}/train/rgb'
 cali_target_folder = f'{target_folder}/train/calibration'
 poses_target_folder = f'{target_folder}/train/poses'
@@ -127,16 +135,17 @@ for train_seq in tqdm(trainSplit):
         x_rob = [current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 1], -current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
         H_rob = ssc_to_homo(x_rob)
         H_c = H_c_lb3 @ H_lb3_rob @ H_rob
-        np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_rob)
+        np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_c)
         # save calibration
-        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength]))
+        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength * img_scale]))
         pbar.update(1)
     pbar.close()
 
 ########################################################################################################
 # test set generate
 print("test set")
-testSplit = ["2013-04-05"]
+# testSplit = ["2013-04-05"]
+testSplit = ["2012-03-31"]
 # print(os.listdir(src_folder))
 img_target_folder = f'{target_folder}/test/rgb'
 cali_target_folder = f'{target_folder}/test/calibration'
@@ -179,8 +188,8 @@ for train_seq in tqdm(testSplit):
         x_rob = [current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 1], -current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
         H_rob = ssc_to_homo(x_rob)
         H_c = H_c_lb3 @ H_lb3_rob @ H_rob
-        np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_rob)
+        np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_c)
         # save calibration
-        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength]))
+        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength * img_scale]))
         pbar.update(1)
     pbar.close()
