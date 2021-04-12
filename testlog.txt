@@ -1,0 +1,1015 @@
+Rotation Error: 9.09deg, Translation Error: 18.5cm
+Valid points: 4103
+Sampling 64 hypotheses.
+Done in 0.0097011s.
+Calculating scores.
+Done in 0.200692s.
+Drawing final hypothesis.
+Soft inlier count: 28.6844 (Selection Probability: 19%)
+Entropy of hypothesis distribution: 3.16935
+Done in 6.73e-05s.
+Refining winning pose:
+Done in 0.0686184s.
+
+Rotation Error: 8.61deg, Translation Error: 18.4cm
+Valid points: 4089
+Sampling 64 hypotheses.
+Done in 0.0066881s.
+Calculating scores.
+Done in 0.187393s.
+Drawing final hypothesis.
+Soft inlier count: 28.0006 (Selection Probability: 29%)
+Entropy of hypothesis distribution: 3.17334
+Done in 0.0005767s.
+Refining winning pose:
+Done in 0.0240482s.
+
+Rotation Error: 9.98deg, Translation Error: 21.0cm
+Valid points: 4149
+Sampling 64 hypotheses.
+Done in 0.0059435s.
+Calculating scores.
+Done in 0.151719s.
+Drawing final hypothesis.
+Soft inlier count: 24.8998 (Selection Probability: 21%)
+Entropy of hypothesis distribution: 3.39255
+Done in 6.13e-05s.
+Refining winning pose:
+Done in 0.0094369s.
+
+Rotation Error: 10.18deg, Translation Error: 22.2cm
+Valid points: 4142
+Sampling 64 hypotheses.
+Done in 0.0127613s.
+Calculating scores.
+Done in 0.182914s.
+Drawing final hypothesis.
+Soft inlier count: 25.956 (Selection Probability: 37%)
+Entropy of hypothesis distribution: 2.72288
+Done in 8.73e-05s.
+Refining winning pose:
+Done in 0.0139274s.
+
+Rotation Error: 7.89deg, Translation Error: 18.1cm
+Valid points: 4127
+Sampling 64 hypotheses.
+Done in 0.0094301s.
+Calculating scores.
+Done in 0.194648s.
+Drawing final hypothesis.
+Soft inlier count: 25.4097 (Selection Probability: 38%)
+Entropy of hypothesis distribution: 2.81082
+Done in 0.0001803s.
+Refining winning pose:
+Done in 0.0363706s.
+
+Rotation Error: 7.19deg, Translation Error: 16.4cm
+Valid points: 4124
+Sampling 64 hypotheses.
+Done in 0.0227657s.
+Calculating scores.
+Done in 0.205519s.
+Drawing final hypothesis.
+Soft inlier count: 24.665 (Selection Probability: 30%)
+Entropy of hypothesis distribution: 3.09667
+Done in 0.0005473s.
+Refining winning pose:
+Done in 0.0082565s.
+
+Rotation Error: 7.16deg, Translation Error: 16.9cm
+Valid points: 4125
+Sampling 64 hypotheses.
+Done in 0.0115064s.
+Calculating scores.
+Done in 0.195958s.
+Drawing final hypothesis.
+Soft inlier count: 24.744 (Selection Probability: 43%)
+Entropy of hypothesis distribution: 2.39182
+Done in 0.0005242s.
+Refining winning pose:
+Done in 0.0082682s.
+
+Rotation Error: 7.02deg, Translation Error: 16.7cm
+Valid points: 4106
+Sampling 64 hypotheses.
+Done in 0.0238048s.
+Calculating scores.
+Done in 0.167936s.
+Drawing final hypothesis.
+Soft inlier count: 24.4042 (Selection Probability: 19%)
+Entropy of hypothesis distribution: 3.39008
+Done in 0.0005503s.
+Refining winning pose:
+Done in 0.0316743s.
+
+Rotation Error: 7.83deg, Translation Error: 17.5cm
+Valid points: 4084
+Sampling 64 hypotheses.
+Done in 0.0041117s.
+Calculating scores.
+Done in 0.212461s.
+Drawing final hypothesis.
+Soft inlier count: 24.6194 (Selection Probability: 30%)
+Entropy of hypothesis distribution: 3.1125
+Done in 8.26e-05s.
+Refining winning pose:
+Done in 0.0199064s.
+
+Rotation Error: 8.37deg, Translation Error: 18.6cm
+Valid points: 4070
+Sampling 64 hypotheses.
+Done in 0.0224454s.
+Calculating scores.
+Done in 0.22923s.
+Drawing final hypothesis.
+Soft inlier count: 24.9345 (Selection Probability: 25%)
+Entropy of hypothesis distribution: 3.11656
+Done in 8.23e-05s.
+Refining winning pose:
+Done in 0.0176544s.
+
+Rotation Error: 6.80deg, Translation Error: 15.2cm
+Valid points: 4027
+Sampling 64 hypotheses.
+Done in 0.0283332s.
+Calculating scores.
+Done in 0.215281s.
+Drawing final hypothesis.
+Soft inlier count: 25.5093 (Selection Probability: 25%)
+Entropy of hypothesis distribution: 3.25879
+Done in 0.0021081s.
+Refining winning pose:
+Done in 0.0221802s.
+
+Rotation Error: 7.51deg, Translation Error: 15.5cm
+Valid points: 3999
+Sampling 64 hypotheses.
+Done in 0.01355s.
+Calculating scores.
+Done in 0.1981s.
+Drawing final hypothesis.
+Soft inlier count: 26.6485 (Selection Probability: 22%)
+Entropy of hypothesis distribution: 3.13841
+Done in 0.0013296s.
+Refining winning pose:
+Done in 0.0528797s.
+
+Rotation Error: 7.57deg, Translation Error: 15.4cm
+Valid points: 3938
+Sampling 64 hypotheses.
+Done in 0.0114037s.
+Calculating scores.
+Done in 0.186202s.
+Drawing final hypothesis.
+Soft inlier count: 26.7706 (Selection Probability: 61%)
+Entropy of hypothesis distribution: 1.8419
+Done in 9.32e-05s.
+Refining winning pose:
+Done in 0.0277202s.
+
+Rotation Error: 6.57deg, Translation Error: 13.7cm
+Valid points: 3863
+Sampling 64 hypotheses.
+Done in 0.0236845s.
+Calculating scores.
+Done in 0.196262s.
+Drawing final hypothesis.
+Soft inlier count: 25.973 (Selection Probability: 54%)
+Entropy of hypothesis distribution: 2.23799
+Done in 0.000537s.
+Refining winning pose:
+Done in 0.0238252s.
+
+Rotation Error: 7.22deg, Translation Error: 15.0cm
+Valid points: 3792
+Sampling 64 hypotheses.
+Done in 0.0158231s.
+Calculating scores.
+Done in 0.191295s.
+Drawing final hypothesis.
+Soft inlier count: 27.0548 (Selection Probability: 37%)
+Entropy of hypothesis distribution: 2.7803
+Done in 8.67e-05s.
+Refining winning pose:
+Done in 0.0088439s.
+
+Rotation Error: 4.60deg, Translation Error: 12.3cm
+Valid points: 3768
+Sampling 64 hypotheses.
+Done in 0.0304718s.
+Calculating scores.
+Done in 0.196717s.
+Drawing final hypothesis.
+Soft inlier count: 26.7021 (Selection Probability: 25%)
+Entropy of hypothesis distribution: 3.02791
+Done in 7.26e-05s.
+Refining winning pose:
+Done in 0.0109283s.
+
+Rotation Error: 2.41deg, Translation Error: 9.9cm
+Valid points: 3803
+Sampling 64 hypotheses.
+Done in 0.0110747s.
+Calculating scores.
+Done in 0.17418s.
+Drawing final hypothesis.
+Soft inlier count: 26.6043 (Selection Probability: 36%)
+Entropy of hypothesis distribution: 2.70465
+Done in 6.9e-05s.
+Refining winning pose:
+Done in 0.0219261s.
+
+Rotation Error: 2.54deg, Translation Error: 9.8cm
+Valid points: 3788
+Sampling 64 hypotheses.
+Done in 0.0118236s.
+Calculating scores.
+Done in 0.250214s.
+Drawing final hypothesis.
+Soft inlier count: 29.5444 (Selection Probability: 25%)
+Entropy of hypothesis distribution: 2.88556
+Done in 9.62e-05s.
+Refining winning pose:
+Done in 0.0403834s.
+
+Rotation Error: 3.49deg, Translation Error: 8.8cm
+Valid points: 3808
+Sampling 64 hypotheses.
+Done in 0.0202548s.
+Calculating scores.
+Done in 0.217007s.
+Drawing final hypothesis.
+Soft inlier count: 30.6156 (Selection Probability: 42%)
+Entropy of hypothesis distribution: 2.61127
+Done in 7.14e-05s.
+Refining winning pose:
+Done in 0.0163673s.
+
+Rotation Error: 3.79deg, Translation Error: 8.5cm
+Valid points: 3803
+Sampling 64 hypotheses.
+Done in 0.01375s.
+Calculating scores.
+Done in 0.217131s.
+Drawing final hypothesis.
+Soft inlier count: 31.987 (Selection Probability: 47%)
+Entropy of hypothesis distribution: 2.4491
+Done in 6.51e-05s.
+Refining winning pose:
+Done in 0.0128817s.
+
+Rotation Error: 3.63deg, Translation Error: 8.6cm
+Valid points: 3804
+Sampling 64 hypotheses.
+Done in 0.0086262s.
+Calculating scores.
+Done in 0.179264s.
+Drawing final hypothesis.
+Soft inlier count: 35.1567 (Selection Probability: 82%)
+Entropy of hypothesis distribution: 1.24235
+Done in 0.0026771s.
+Refining winning pose:
+Done in 0.0120925s.
+
+Rotation Error: 4.58deg, Translation Error: 10.2cm
+Valid points: 3764
+Sampling 64 hypotheses.
+Done in 0.0133285s.
+Calculating scores.
+Done in 0.163484s.
+Drawing final hypothesis.
+Soft inlier count: 35.5551 (Selection Probability: 37%)
+Entropy of hypothesis distribution: 2.76393
+Done in 6.22e-05s.
+Refining winning pose:
+Done in 0.0072791s.
+
+Rotation Error: 5.01deg, Translation Error: 10.7cm
+Valid points: 3763
+Sampling 64 hypotheses.
+Done in 0.0135896s.
+Calculating scores.
+Done in 0.214642s.
+Drawing final hypothesis.
+Soft inlier count: 36.5444 (Selection Probability: 34%)
+Entropy of hypothesis distribution: 2.32718
+Done in 0.0007107s.
+Refining winning pose:
+Done in 0.0112873s.
+
+Rotation Error: 4.58deg, Translation Error: 10.2cm
+Valid points: 3831
+Sampling 64 hypotheses.
+Done in 0.0096359s.
+Calculating scores.
+Done in 0.200818s.
+Drawing final hypothesis.
+Soft inlier count: 35.1775 (Selection Probability: 38%)
+Entropy of hypothesis distribution: 2.72971
+Done in 0.0017808s.
+Refining winning pose:
+Done in 0.0138212s.
+
+Rotation Error: 5.37deg, Translation Error: 11.3cm
+Valid points: 3794
+Sampling 64 hypotheses.
+Done in 0.0027881s.
+Calculating scores.
+Done in 0.172232s.
+Drawing final hypothesis.
+Soft inlier count: 38.4029 (Selection Probability: 44%)
+Entropy of hypothesis distribution: 2.01314
+Done in 0.0001755s.
+Refining winning pose:
+Done in 0.0467996s.
+
+Rotation Error: 5.48deg, Translation Error: 11.5cm
+Valid points: 3800
+Sampling 64 hypotheses.
+Done in 0.0074929s.
+Calculating scores.
+Done in 0.189396s.
+Drawing final hypothesis.
+Soft inlier count: 38.1931 (Selection Probability: 28%)
+Entropy of hypothesis distribution: 3.23575
+Done in 0.000435199s.
+Refining winning pose:
+Done in 0.0074198s.
+
+Rotation Error: 6.11deg, Translation Error: 12.8cm
+Valid points: 3859
+Sampling 64 hypotheses.
+Done in 0.0051345s.
+Calculating scores.
+Done in 0.183364s.
+Drawing final hypothesis.
+Soft inlier count: 38.8323 (Selection Probability: 48%)
+Entropy of hypothesis distribution: 1.97441
+Done in 0.0023124s.
+Refining winning pose:
+Done in 0.0084686s.
+
+Rotation Error: 5.48deg, Translation Error: 11.4cm
+Valid points: 3849
+Sampling 64 hypotheses.
+Done in 0.0183637s.
+Calculating scores.
+Done in 0.205026s.
+Drawing final hypothesis.
+Soft inlier count: 35.5346 (Selection Probability: 44%)
+Entropy of hypothesis distribution: 2.24057
+Done in 0.0022971s.
+Refining winning pose:
+Done in 0.0320393s.
+
+Rotation Error: 5.20deg, Translation Error: 11.1cm
+Valid points: 3847
+Sampling 64 hypotheses.
+Done in 0.0078549s.
+Calculating scores.
+Done in 0.174298s.
+Drawing final hypothesis.
+Soft inlier count: 34.6552 (Selection Probability: 56%)
+Entropy of hypothesis distribution: 2.30296
+Done in 0.0043431s.
+Refining winning pose:
+Done in 0.0261225s.
+
+Rotation Error: 7.91deg, Translation Error: 17.9cm
+Valid points: 3864
+Sampling 64 hypotheses.
+Done in 0.014611s.
+Calculating scores.
+Done in 0.18402s.
+Drawing final hypothesis.
+Soft inlier count: 34.1226 (Selection Probability: 32%)
+Entropy of hypothesis distribution: 2.53967
+Done in 6.61e-05s.
+Refining winning pose:
+Done in 0.0075377s.
+
+Rotation Error: 8.35deg, Translation Error: 20.0cm
+Valid points: 3903
+Sampling 64 hypotheses.
+Done in 0.0179657s.
+Calculating scores.
+Done in 0.225169s.
+Drawing final hypothesis.
+Soft inlier count: 35.3977 (Selection Probability: 45%)
+Entropy of hypothesis distribution: 2.06212
+Done in 0.0019267s.
+Refining winning pose:
+Done in 0.0173606s.
+
+Rotation Error: 7.69deg, Translation Error: 18.1cm
+Valid points: 3916
+Sampling 64 hypotheses.
+Done in 0.0145505s.
+Calculating scores.
+Done in 0.226988s.
+Drawing final hypothesis.
+Soft inlier count: 35.9876 (Selection Probability: 62%)
+Entropy of hypothesis distribution: 1.63691
+Done in 0.003435s.
+Refining winning pose:
+Done in 0.0087649s.
+
+Rotation Error: 7.79deg, Translation Error: 18.7cm
+Valid points: 3931
+Sampling 64 hypotheses.
+Done in 0.0200595s.
+Calculating scores.
+Done in 0.1972s.
+Drawing final hypothesis.
+Soft inlier count: 36.0568 (Selection Probability: 48%)
+Entropy of hypothesis distribution: 1.77038
+Done in 9.78e-05s.
+Refining winning pose:
+Done in 0.021335s.
+
+Rotation Error: 8.46deg, Translation Error: 20.5cm
+Valid points: 3924
+Sampling 64 hypotheses.
+Done in 0.009168s.
+Calculating scores.
+Done in 0.205531s.
+Drawing final hypothesis.
+Soft inlier count: 35.5553 (Selection Probability: 80%)
+Entropy of hypothesis distribution: 1.2368
+Done in 0.0004849s.
+Refining winning pose:
+Done in 0.0136224s.
+
+Rotation Error: 8.04deg, Translation Error: 19.7cm
+Valid points: 3945
+Sampling 64 hypotheses.
+Done in 0.0028668s.
+Calculating scores.
+Done in 0.16923s.
+Drawing final hypothesis.
+Soft inlier count: 34.3786 (Selection Probability: 41%)
+Entropy of hypothesis distribution: 2.73912
+Done in 0.0019782s.
+Refining winning pose:
+Done in 0.0475152s.
+
+Rotation Error: 7.51deg, Translation Error: 18.7cm
+Valid points: 3948
+Sampling 64 hypotheses.
+Done in 0.0045113s.
+Calculating scores.
+Done in 0.202712s.
+Drawing final hypothesis.
+Soft inlier count: 36.4401 (Selection Probability: 81%)
+Entropy of hypothesis distribution: 1.17968
+Done in 0.0005409s.
+Refining winning pose:
+Done in 0.0120525s.
+
+Rotation Error: 7.05deg, Translation Error: 17.9cm
+Valid points: 3960
+Sampling 64 hypotheses.
+Done in 0.0063159s.
+Calculating scores.
+Done in 0.187684s.
+Drawing final hypothesis.
+Soft inlier count: 34.7002 (Selection Probability: 32%)
+Entropy of hypothesis distribution: 2.51769
+Done in 0.0023352s.
+Refining winning pose:
+Done in 0.0086884s.
+
+Rotation Error: 4.52deg, Translation Error: 11.7cm
+Valid points: 3946
+Sampling 64 hypotheses.
+Done in 0.0116091s.
+Calculating scores.
+Done in 0.202526s.
+Drawing final hypothesis.
+Soft inlier count: 35.4291 (Selection Probability: 34%)
+Entropy of hypothesis distribution: 2.65831
+Done in 0.0023748s.
+Refining winning pose:
+Done in 0.0053209s.
+
+Rotation Error: 4.87deg, Translation Error: 12.4cm
+Valid points: 3938
+Sampling 64 hypotheses.
+Done in 0.0048515s.
+Calculating scores.
+Done in 0.185689s.
+Drawing final hypothesis.
+Soft inlier count: 32.011 (Selection Probability: 24%)
+Entropy of hypothesis distribution: 3.24137
+Done in 0.0026983s.
+Refining winning pose:
+Done in 0.0240448s.
+
+Rotation Error: 2.77deg, Translation Error: 6.8cm
+Valid points: 3935
+Sampling 64 hypotheses.
+Done in 0.0116962s.
+Calculating scores.
+Done in 0.201807s.
+Drawing final hypothesis.
+Soft inlier count: 33.2313 (Selection Probability: 74%)
+Entropy of hypothesis distribution: 1.29214
+Done in 0.0025231s.
+Refining winning pose:
+Done in 0.0135817s.
+
+Rotation Error: 3.10deg, Translation Error: 7.5cm
+Valid points: 3908
+Sampling 64 hypotheses.
+Done in 0.0268463s.
+Calculating scores.
+Done in 0.196849s.
+Drawing final hypothesis.
+Soft inlier count: 29.7962 (Selection Probability: 34%)
+Entropy of hypothesis distribution: 2.35837
+Done in 7.38e-05s.
+Refining winning pose:
+Done in 0.0272749s.
+
+Rotation Error: 2.15deg, Translation Error: 5.0cm
+Valid points: 3914
+Sampling 64 hypotheses.
+Done in 0.0123378s.
+Calculating scores.
+Done in 0.198836s.
+Drawing final hypothesis.
+Soft inlier count: 33.3183 (Selection Probability: 40%)
+Entropy of hypothesis distribution: 2.61877
+Done in 0.0004032s.
+Refining winning pose:
+Done in 0.0081878s.
+
+Rotation Error: 2.83deg, Translation Error: 6.8cm
+Valid points: 3932
+Sampling 64 hypotheses.
+Done in 0.0108406s.
+Calculating scores.
+Done in 0.190882s.
+Drawing final hypothesis.
+Soft inlier count: 34.2753 (Selection Probability: 43%)
+Entropy of hypothesis distribution: 2.31934
+Done in 7.0999e-05s.
+Refining winning pose:
+Done in 0.0180906s.
+
+Rotation Error: 2.20deg, Translation Error: 5.8cm
+Valid points: 3971
+Sampling 64 hypotheses.
+Done in 0.0306748s.
+Calculating scores.
+Done in 0.172275s.
+Drawing final hypothesis.
+Soft inlier count: 34.6766 (Selection Probability: 42%)
+Entropy of hypothesis distribution: 2.47641
+Done in 0.0023757s.
+Refining winning pose:
+Done in 0.0400477s.
+
+Rotation Error: 3.77deg, Translation Error: 9.4cm
+Valid points: 3968
+Sampling 64 hypotheses.
+Done in 0.0089454s.
+Calculating scores.
+Done in 0.185221s.
+Drawing final hypothesis.
+Soft inlier count: 34.6401 (Selection Probability: 43%)
+Entropy of hypothesis distribution: 2.13742
+Done in 0.0004299s.
+Refining winning pose:
+Done in 0.0160697s.
+
+Rotation Error: 3.74deg, Translation Error: 8.7cm
+Valid points: 4108
+Sampling 64 hypotheses.
+Done in 0.0129276s.
+Calculating scores.
+Done in 0.174904s.
+Drawing final hypothesis.
+Soft inlier count: 35.9241 (Selection Probability: 31%)
+Entropy of hypothesis distribution: 2.99061
+Done in 5.76e-05s.
+Refining winning pose:
+Done in 0.004016s.
+
+Rotation Error: 5.43deg, Translation Error: 11.7cm
+Valid points: 4145
+Sampling 64 hypotheses.
+Done in 0.0127808s.
+Calculating scores.
+Done in 0.165794s.
+Drawing final hypothesis.
+Soft inlier count: 37.7579 (Selection Probability: 28%)
+Entropy of hypothesis distribution: 3.27733
+Done in 0.0071907s.
+Refining winning pose:
+Done in 0.0253505s.
+
+Rotation Error: 4.11deg, Translation Error: 10.0cm
+Valid points: 4159
+Sampling 64 hypotheses.
+Done in 0.0272987s.
+Calculating scores.
+Done in 0.192682s.
+Drawing final hypothesis.
+Soft inlier count: 37.368 (Selection Probability: 59%)
+Entropy of hypothesis distribution: 2.29681
+Done in 0.0009322s.
+Refining winning pose:
+Done in 0.0193031s.
+
+Rotation Error: 6.25deg, Translation Error: 13.7cm
+Valid points: 4146
+Sampling 64 hypotheses.
+Done in 0.0130997s.
+Calculating scores.
+Done in 0.168087s.
+Drawing final hypothesis.
+Soft inlier count: 35.2306 (Selection Probability: 39%)
+Entropy of hypothesis distribution: 2.50377
+Done in 6.26e-05s.
+Refining winning pose:
+Done in 0.012068s.
+
+Rotation Error: 7.57deg, Translation Error: 16.2cm
+Valid points: 4169
+Sampling 64 hypotheses.
+Done in 0.0039288s.
+Calculating scores.
+Done in 0.203397s.
+Drawing final hypothesis.
+Soft inlier count: 35.1767 (Selection Probability: 42%)
+Entropy of hypothesis distribution: 2.74295
+Done in 0.0002948s.
+Refining winning pose:
+Done in 0.0169502s.
+
+Rotation Error: 7.42deg, Translation Error: 16.3cm
+Valid points: 4149
+Sampling 64 hypotheses.
+Done in 0.0058466s.
+Calculating scores.
+Done in 0.206531s.
+Drawing final hypothesis.
+Soft inlier count: 34.4401 (Selection Probability: 34%)
+Entropy of hypothesis distribution: 2.66112
+Done in 0.0027132s.
+Refining winning pose:
+Done in 0.0239822s.
+
+Rotation Error: 6.81deg, Translation Error: 15.1cm
+Valid points: 4166
+Sampling 64 hypotheses.
+Done in 0.0253774s.
+Calculating scores.
+Done in 0.203263s.
+Drawing final hypothesis.
+Soft inlier count: 33.2771 (Selection Probability: 24%)
+Entropy of hypothesis distribution: 3.18573
+Done in 6.09e-05s.
+Refining winning pose:
+Done in 0.0119433s.
+
+Rotation Error: 6.85deg, Translation Error: 15.5cm
+Valid points: 4179
+Sampling 64 hypotheses.
+Done in 0.007356s.
+Calculating scores.
+Done in 0.184635s.
+Drawing final hypothesis.
+Soft inlier count: 28.9051 (Selection Probability: 26%)
+Entropy of hypothesis distribution: 3.03491
+Done in 6.87e-05s.
+Refining winning pose:
+Done in 0.0324867s.
+
+Rotation Error: 8.00deg, Translation Error: 17.1cm
+Valid points: 4172
+Sampling 64 hypotheses.
+Done in 0.0045173s.
+Calculating scores.
+Done in 0.216767s.
+Drawing final hypothesis.
+Soft inlier count: 29.4495 (Selection Probability: 45%)
+Entropy of hypothesis distribution: 2.46583
+Done in 0.0005649s.
+Refining winning pose:
+Done in 0.0166549s.
+
+Rotation Error: 9.89deg, Translation Error: 19.9cm
+Valid points: 4202
+Sampling 64 hypotheses.
+Done in 0.0192367s.
+Calculating scores.
+Done in 0.229537s.
+Drawing final hypothesis.
+Soft inlier count: 27.8808 (Selection Probability: 26%)
+Entropy of hypothesis distribution: 2.69758
+Done in 9.16e-05s.
+Refining winning pose:
+Done in 0.0530173s.
+
+Rotation Error: 9.53deg, Translation Error: 18.7cm
+Valid points: 4207
+Sampling 64 hypotheses.
+Done in 0.0186203s.
+Calculating scores.
+Done in 0.224889s.
+Drawing final hypothesis.
+Soft inlier count: 27.5518 (Selection Probability: 15%)
+Entropy of hypothesis distribution: 3.67281
+Done in 0.0020199s.
+Refining winning pose:
+Done in 0.0288482s.
+
+Rotation Error: 10.10deg, Translation Error: 19.5cm
+Valid points: 4210
+Sampling 64 hypotheses.
+Done in 0.0112555s.
+Calculating scores.
+Done in 0.22538s.
+Drawing final hypothesis.
+Soft inlier count: 27.3066 (Selection Probability: 43%)
+Entropy of hypothesis distribution: 2.77019
+Done in 0.0004596s.
+Refining winning pose:
+Done in 0.0242517s.
+
+Rotation Error: 10.76deg, Translation Error: 19.7cm
+Valid points: 4217
+Sampling 64 hypotheses.
+Done in 0.0202925s.
+Calculating scores.
+Done in 0.163812s.
+Drawing final hypothesis.
+Soft inlier count: 26.9119 (Selection Probability: 18%)
+Entropy of hypothesis distribution: 3.51232
+Done in 0.0015146s.
+Refining winning pose:
+Done in 0.0748288s.
+
+Rotation Error: 9.82deg, Translation Error: 19.4cm
+Valid points: 4205
+Sampling 64 hypotheses.
+Done in 0.0213219s.
+Calculating scores.
+Done in 0.202551s.
+Drawing final hypothesis.
+Soft inlier count: 26.2815 (Selection Probability: 44%)
+Entropy of hypothesis distribution: 2.4226
+Done in 6.97e-05s.
+Refining winning pose:
+Done in 0.0082097s.
+
+Rotation Error: 9.97deg, Translation Error: 19.2cm
+Valid points: 4181
+Sampling 64 hypotheses.
+Done in 0.010819s.
+Calculating scores.
+Done in 0.171378s.
+Drawing final hypothesis.
+Soft inlier count: 24.2255 (Selection Probability: 30%)
+Entropy of hypothesis distribution: 2.78888
+Done in 7.57e-05s.
+Refining winning pose:
+Done in 0.0083729s.
+
+Rotation Error: 9.14deg, Translation Error: 18.6cm
+Valid points: 4188
+Sampling 64 hypotheses.
+Done in 0.0064584s.
+Calculating scores.
+Done in 0.149959s.
+Drawing final hypothesis.
+Soft inlier count: 22.4254 (Selection Probability: 43%)
+Entropy of hypothesis distribution: 2.62533
+Done in 0.0005357s.
+Refining winning pose:
+Done in 0.0180362s.
+
+Rotation Error: 8.26deg, Translation Error: 16.7cm
+Valid points: 4180
+Sampling 64 hypotheses.
+Done in 0.0055372s.
+Calculating scores.
+Done in 0.181722s.
+Drawing final hypothesis.
+Soft inlier count: 22.7497 (Selection Probability: 39%)
+Entropy of hypothesis distribution: 3.05681
+Done in 0.0034722s.
+Refining winning pose:
+Done in 0.0245984s.
+
+Rotation Error: 7.90deg, Translation Error: 16.9cm
+Valid points: 4158
+Sampling 64 hypotheses.
+Done in 0.0194781s.
+Calculating scores.
+Done in 0.177753s.
+Drawing final hypothesis.
+Soft inlier count: 22.5042 (Selection Probability: 24%)
+Entropy of hypothesis distribution: 3.12121
+Done in 7.38e-05s.
+Refining winning pose:
+Done in 0.0124164s.
+
+Rotation Error: 9.69deg, Translation Error: 19.3cm
+Valid points: 4175
+Sampling 64 hypotheses.
+Done in 0.0155351s.
+Calculating scores.
+Done in 0.223085s.
+Drawing final hypothesis.
+Soft inlier count: 21.4175 (Selection Probability: 22%)
+Entropy of hypothesis distribution: 3.15339
+Done in 7.52e-05s.
+Refining winning pose:
+Done in 0.0080382s.
+
+Rotation Error: 7.53deg, Translation Error: 18.2cm
+Valid points: 4173
+Sampling 64 hypotheses.
+Done in 0.0294505s.
+Calculating scores.
+Done in 0.21172s.
+Drawing final hypothesis.
+Soft inlier count: 20.3324 (Selection Probability: 18%)
+Entropy of hypothesis distribution: 3.52041
+Done in 0.0038704s.
+Refining winning pose:
+Done in 0.0091384s.
+
+Rotation Error: 8.18deg, Translation Error: 19.8cm
+Valid points: 4166
+Sampling 64 hypotheses.
+Done in 0.0069912s.
+Calculating scores.
+Done in 0.16329s.
+Drawing final hypothesis.
+Soft inlier count: 20.5828 (Selection Probability: 32%)
+Entropy of hypothesis distribution: 2.7467
+Done in 7.82e-05s.
+Refining winning pose:
+Done in 0.008914s.
+
+Rotation Error: 9.94deg, Translation Error: 22.5cm
+Valid points: 4139
+Sampling 64 hypotheses.
+Done in 0.013019s.
+Calculating scores.
+Done in 0.205676s.
+Drawing final hypothesis.
+Soft inlier count: 19.3312 (Selection Probability: 30%)
+Entropy of hypothesis distribution: 2.95346
+Done in 7.33e-05s.
+Refining winning pose:
+Done in 0.0093691s.
+
+Rotation Error: 6.82deg, Translation Error: 18.5cm
+Valid points: 4126
+Sampling 64 hypotheses.
+Done in 0.0111133s.
+Calculating scores.
+Done in 0.186291s.
+Drawing final hypothesis.
+Soft inlier count: 17.738 (Selection Probability: 29%)
+Entropy of hypothesis distribution: 3.14082
+Done in 0.0015044s.
+Refining winning pose:
+Done in 0.0086402s.
+
+Rotation Error: 5.81deg, Translation Error: 16.6cm
+Valid points: 4112
+Sampling 64 hypotheses.
+Done in 0.0103811s.
+Calculating scores.
+Done in 0.17547s.
+Drawing final hypothesis.
+Soft inlier count: 19.1123 (Selection Probability: 39%)
+Entropy of hypothesis distribution: 2.80267
+Done in 0.0001278s.
+Refining winning pose:
+Done in 0.0253594s.
+
+Rotation Error: 5.33deg, Translation Error: 16.8cm
+Valid points: 4061
+Sampling 64 hypotheses.
+Done in 0.0117445s.
+Calculating scores.
+Done in 0.204033s.
+Drawing final hypothesis.
+Soft inlier count: 18.8143 (Selection Probability: 15%)
+Entropy of hypothesis distribution: 3.59267
+Done in 0.0005538s.
+Refining winning pose:
+Done in 0.0080002s.
+
+Rotation Error: 7.81deg, Translation Error: 20.1cm
+Valid points: 4039
+Sampling 64 hypotheses.
+Done in 0.0130325s.
+Calculating scores.
+Done in 0.171193s.
+Drawing final hypothesis.
+Soft inlier count: 19.7049 (Selection Probability: 25%)
+Entropy of hypothesis distribution: 2.99741
+Done in 0.0033691s.
+Refining winning pose:
+Done in 0.0088174s.
+
+Rotation Error: 8.13deg, Translation Error: 20.9cm
+Valid points: 4042
+Sampling 64 hypotheses.
+Done in 0.0137871s.
+Calculating scores.
+Done in 0.176446s.
+Drawing final hypothesis.
+Soft inlier count: 19.4303 (Selection Probability: 31%)
+Entropy of hypothesis distribution: 2.97488
+Done in 7.34e-05s.
+Refining winning pose:
+Done in 0.0077996s.
+
+Rotation Error: 8.06deg, Translation Error: 19.3cm
+Valid points: 4062
+Sampling 64 hypotheses.
+Done in 0.0225159s.
+Calculating scores.
+Done in 0.224609s.
+Drawing final hypothesis.
+Soft inlier count: 22.3798 (Selection Probability: 71%)
+Entropy of hypothesis distribution: 1.6055
+Done in 9.0699e-05s.
+Refining winning pose:
+Done in 0.0170612s.
+
+Rotation Error: 7.97deg, Translation Error: 19.2cm
+Valid points: 4071
+Sampling 64 hypotheses.
+Done in 0.0210152s.
+Calculating scores.
+Done in 0.191122s.
+Drawing final hypothesis.
+Soft inlier count: 24.1083 (Selection Probability: 81%)
+Entropy of hypothesis distribution: 1.22714
+Done in 9.17e-05s.
+Refining winning pose:
+Done in 0.0192737s.
+
+Rotation Error: 6.60deg, Translation Error: 16.3cm
+Valid points: 4032
+Sampling 64 hypotheses.
+Done in 0.0096601s.
+Calculating scores.
+Done in 0.201266s.
+Drawing final hypothesis.
+Soft inlier count: 23.2934 (Selection Probability: 56%)
+Entropy of hypothesis distribution: 1.915
+Done in 0.0024198s.
+Refining winning pose:
+Done in 0.0160515s.
+
+Rotation Error: 8.55deg, Translation Error: 19.6cm
+Valid points: 4029
+Sampling 64 hypotheses.
+Done in 0.0087571s.
+Calculating scores.
+Done in 0.184747s.
+Drawing final hypothesis.
+Soft inlier count: 26.1938 (Selection Probability: 69%)
+Entropy of hypothesis distribution: 1.7885
+Done in 0.0016802s.
+Refining winning pose:
+Done in 0.0091047s.
+
+Rotation Error: 8.19deg, Translation Error: 19.3cm
+Valid points: 4057
+Sampling 64 hypotheses.
+Done in 0.0158855s.
+Calculating scores.
+Done in 0.220093s.
+Drawing final hypothesis.
+Soft inlier count: 27.174 (Selection Probability: 68%)
+Entropy of hypothesis distribution: 1.43731
+Done in 0.0023028s.
+Refining winning pose:
+Done in 0.0165696s.
+
+Rotation Error: 6.84deg, Translation Error: 16.0cm
+
+===================================================
+
+Test complete.
+
+Accuracy:
+
+5cm5deg: 0.8%
+2cm2deg: 0.2%
+1cm1deg: 0.0%
+
+Median Error: 8.1deg, 19.3cm
+Avg. processing time: 320.7ms

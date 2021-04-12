@@ -1,5 +1,5 @@
 import os
-import zipfile
+import zipfile38 as zipfile
 
 def mkdir(directory):
 	"""Checks whether the directory exists and creates it if necessacy."""
