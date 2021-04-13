@@ -2,7 +2,6 @@ import os
 import numpy as np
 import sys
 import cv2
-import csv
 from tqdm import tqdm
 
 img_scale = 1
@@ -68,51 +67,54 @@ def ssc_to_homo(ssc):
 
     return H
 
-
+############################################################################
+# TODO: Check these items and edit    #
 sys.path.append('/datadrive/dsacstar/datasets')
-src_folder = '/datadrive/dsacstar/datasets/nclt_source'
-focallength = 409.719024
-target_folder = '/datadrive/dsacstar/datasets/nclt'
+src_folder = './nclt_source'
+focallength = 399.433184
+target_folder = './nclt'
 # bounds for masking a subregion of trajectory
-x_l_bound = -375
-x_u_bound = -75
-y_l_bound = -175
-y_u_bound = -45
-train_size = 650
+x_l_bound = -175
+x_u_bound = -45
+y_l_bound = -375
+y_u_bound = -80
+train_size = 1500
 match_threshold = 10000
+cam = 'Cam5'
 
 # camera calibration matrices
-x_lb3_c = [0.014543, 0.039337, 0.000398, -138.449751, 89.703877, -66.518051]
+x_lb3_c = [0.041862, -0.001905, -0.000212, 160.868615, 89.914152, 160.619894]
 x_rob_lb3 = [0.035, 0.002, -1.23, -179.93, -0.23, 0.50]
 H_lb3_c = ssc_to_homo(x_lb3_c)
 H_rob_lb3 = ssc_to_homo(x_rob_lb3)
 H_c_lb3 = np.linalg.inv(H_lb3_c)
 H_lb3_rob = np.linalg.inv(H_rob_lb3)
 
-trainSplit = ["2012-01-08", "2012-03-17", "2012-10-28", "2012-11-04"]
-# trainSplit = ["2012-01-08"]
-# testSplit = ["2013-04-05"]
-# print(os.listdir(src_folder))
-# sampled_image_csv = []
+trainSplit = ["2012-01-08", "2012-03-17", "2012-10-28"]
+############################################################################
+
 img_target_folder = f'{target_folder}/train/rgb'
 cali_target_folder = f'{target_folder}/train/calibration'
 poses_target_folder = f'{target_folder}/train/poses'
 
 for train_seq in tqdm(trainSplit):
+    sampled_image_csv = []
     current_seq_src = f'{src_folder}/{train_seq}'
     # loads ground truth
     current_gt = np.loadtxt(f'{current_seq_src}/groundtruth_{train_seq}.csv', delimiter=',')
-    current_gt = current_gt[(current_gt[:,2] >= x_l_bound) & (current_gt[:,2] <= x_u_bound) \
-        & (current_gt[:,1] <= y_u_bound) & (current_gt[:,1] >= y_l_bound)]
-
-    current_img_folder = f'{current_seq_src}/lb3/Cam1'
+    current_gt = current_gt[(current_gt[:,1] >= x_l_bound) & (current_gt[:,1] <= x_u_bound) \
+        & (current_gt[:,2] <= y_u_bound) & (current_gt[:,2] >= y_l_bound)]
+    print(current_gt.shape)
+    current_gt = current_gt[current_gt[:,0] < current_gt[0,0]+1e9]
+    print(current_gt.shape)
+    current_img_folder = f'{current_seq_src}/lb3/{cam}'
     img_list = [os.path.splitext(filename)[0] for filename in os.listdir(current_img_folder)]
-    print(np.array(img_list, dtype=int))
     
     # use np.arange to approximate sampling, since cam and gt are async
     sample_idx = np.arange(0, current_gt.shape[0]-1, int(current_gt.shape[0]/train_size))
     img_to_sample = current_gt[sample_idx, 0]
     img_to_sample = img_to_sample[:train_size]
+    print(img_to_sample.shape)
     
     # with open('sampled_image.csv', 'w', newline='') as csvfile:
     #     csv_writer = csv.writer(csvfile, delimiter=',')
@@ -126,41 +128,52 @@ for train_seq in tqdm(trainSplit):
         img_dst = f'{img_target_folder}/{frame_name}.color.png'
         # save rgb
         save_img(img_src, img_dst)
-        sampled_image_csv = [frame_name, str(current_gt[sample_idx[idx], 2]), \
-            str(current_gt[sample_idx[idx], 1]), str(-current_gt[sample_idx[idx], 3]), \
-                str(current_gt[sample_idx[idx], 4]), str(current_gt[sample_idx[idx], 5]), \
-                    str(current_gt[sample_idx[idx], 6])] #x y -z r p y
-        # csv_writer.writerow(sampled_image_csv)
+        sampled_image_csv.append([current_gt[sample_idx[idx], 0], current_gt[sample_idx[idx], 1], \
+            current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 3], \
+                current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], \
+                    current_gt[sample_idx[idx], 6]])
         # save poses
-        x_rob = [current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 1], -current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
+        x_rob = [current_gt[sample_idx[idx], 1], current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
+        x_rob[3] *= 180.0 / np.pi
+        x_rob[4] *= 180.0 / np.pi
+        x_rob[5] *= 180.0 / np.pi
         H_rob = ssc_to_homo(x_rob)
-        H_c = H_c_lb3 @ H_lb3_rob @ H_rob
+        # H_c = H_c_lb3 @ H_lb3_rob @ H_rob
+        H_c = H_rob @ H_lb3_rob @ H_c_lb3
         np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_c)
         # save calibration
-        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength * img_scale]))
+        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength*img_scale]))
         pbar.update(1)
     pbar.close()
+    np.savetxt(f'{train_seq}_sample.txt', sampled_image_csv)
 
 ########################################################################################################
-# test set generate
+# # test set generate
 print("test set")
-# testSplit = ["2013-04-05"]
+
+############################################################################
+# TODO: Check these items and edit    #
+train_size = 1000
 testSplit = ["2012-03-31"]
+############################################################################
+
 # print(os.listdir(src_folder))
 img_target_folder = f'{target_folder}/test/rgb'
 cali_target_folder = f'{target_folder}/test/calibration'
 poses_target_folder = f'{target_folder}/test/poses'
 
 for train_seq in tqdm(testSplit):
+    sampled_image_csv = []
     current_seq_src = f'{src_folder}/{train_seq}'
     # loads ground truth
     current_gt = np.loadtxt(f'{current_seq_src}/groundtruth_{train_seq}.csv', delimiter=',')
-    current_gt = current_gt[(current_gt[:,2] >= x_l_bound) & (current_gt[:,2] <= x_u_bound) \
-        & (current_gt[:,1] <= y_u_bound) & (current_gt[:,1] >= y_l_bound)]
-
-    current_img_folder = f'{current_seq_src}/lb3/Cam1'
+    current_gt = current_gt[(current_gt[:,1] >= x_l_bound) & (current_gt[:,1] <= x_u_bound) \
+        & (current_gt[:,2] <= y_u_bound) & (current_gt[:,2] >= y_l_bound)]
+    print(current_gt.shape)
+    current_gt = current_gt[current_gt[:,0] < current_gt[0,0]+1e9]
+    print(current_gt.shape)
+    current_img_folder = f'{current_seq_src}/lb3/{cam}'
     img_list = [os.path.splitext(filename)[0] for filename in os.listdir(current_img_folder)]
-    # print(np.array(img_list, dtype=int))
     
     # use np.arange to approximate sampling, since cam and gt are async
     sample_idx = np.arange(0, current_gt.shape[0]-1, int(current_gt.shape[0]/train_size))
@@ -179,17 +192,21 @@ for train_seq in tqdm(testSplit):
         img_dst = f'{img_target_folder}/{frame_name}.color.png'
         # save rgb
         save_img(img_src, img_dst)
-        sampled_image_csv = [frame_name, str(current_gt[sample_idx[idx], 2]), \
-            str(current_gt[sample_idx[idx], 1]), str(-current_gt[sample_idx[idx], 3]), \
-                str(current_gt[sample_idx[idx], 4]), str(current_gt[sample_idx[idx], 5]), \
-                    str(current_gt[sample_idx[idx], 6])] #x y -z r p y
+        sampled_image_csv.append([current_gt[sample_idx[idx], 0], current_gt[sample_idx[idx], 1], \
+            current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 3], \
+                current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], \
+                    current_gt[sample_idx[idx], 6]])
         # csv_writer.writerow(sampled_image_csv)
         # save poses
-        x_rob = [current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 1], -current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
+        x_rob = [current_gt[sample_idx[idx], 1], current_gt[sample_idx[idx], 2], current_gt[sample_idx[idx], 3], current_gt[sample_idx[idx], 4], current_gt[sample_idx[idx], 5], current_gt[sample_idx[idx], 6]]
+        x_rob[3] *= 180.0 / np.pi
+        x_rob[4] *= 180.0 / np.pi
+        x_rob[5] *= 180.0 / np.pi
         H_rob = ssc_to_homo(x_rob)
-        H_c = H_c_lb3 @ H_lb3_rob @ H_rob
+        H_c = H_rob @ H_lb3_rob @ H_c_lb3
         np.savetxt(f'{poses_target_folder}/{frame_name}.pose.txt', H_c)
         # save calibration
-        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength * img_scale]))
+        np.savetxt(f'{cali_target_folder}/{frame_name}.calibration.txt', np.array([focallength*img_scale]))
         pbar.update(1)
     pbar.close()
+    np.savetxt(f'{train_seq}_sample.txt', sampled_image_csv)
