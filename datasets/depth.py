@@ -24,7 +24,7 @@ test_depth = scene/'test'/'depth'
 test_depth.mkdir()
 
 use_large_model = True
-
+torch.hub.set_dir('/home/yongyu/data/.cache/torch/hub')
 if use_large_model:
     midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
 else:
@@ -42,7 +42,7 @@ else:
     transform = midas_transforms.small_transform
 
 for rgb, depth in [(train_rgb, train_depth), (test_rgb, test_depth)]:
-    for img_path in rgb.glob('frame*'):
+    for img_path in rgb.glob('2012*'):
         img = cv2.imread(str(img_path))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
@@ -60,7 +60,7 @@ for rgb, depth in [(train_rgb, train_depth), (test_rgb, test_depth)]:
             
         output = prediction.cpu().numpy()
 
-        midas_depth = 4000000 / output
+        midas_depth = output
         midas_depth = midas_depth.astype(np.uint16)
         fname = img_path.name
         depth_filename = fname.split('.')[0] + '.depth.png'

@@ -85,15 +85,15 @@ for epoch in range(epochs):
 
 	print("=== Epoch: %7d ======================================" % epoch)
 
-	for image, pose, camera_coordinates, focal_length, file in trainset_loader:
+	for image, pose, camera_coordinates, focal_length, file, depth_img in trainset_loader:
 
 		start_time = time.time()
 
 		focal_length = float(focal_length[0])
 		pose = pose[0]
-
+		depth_img = depth_img.reshape(image.shape)
 		# predict scene coordinates
-		scene_coordinates = network(image.cuda())
+		scene_coordinates = network(image.cuda(), depth_img.cuda())
 		scene_coordinate_gradients = torch.zeros(scene_coordinates.size())
 
 		if opt.mode == 2:

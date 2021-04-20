@@ -68,7 +68,7 @@ print("Calculating mean scene coordinate for the scene...")
 mean = torch.zeros((3))
 count = 0
 
-for image, gt_pose, gt_coords, focal_length, file in trainset_loader:
+for image, gt_pose, gt_coords, focal_length, file, _ in trainset_loader:
 
 	if use_init:
 		# use mean of ground truth scene coordinates
@@ -120,7 +120,7 @@ for epoch in range(epochs):
 
 	print("=== Epoch: %d ======================================" % epoch)
 
-	for image, gt_pose, gt_coords, focal_length, file in trainset_loader:
+	for image, gt_pose, gt_coords, focal_length, file, depth_img in trainset_loader:
 
 		start_time = time.time()
 
@@ -132,8 +132,8 @@ for epoch in range(epochs):
 		cam_mat[0, 2] = image.size(3) / 2
 		cam_mat[1, 2] = image.size(2) / 2
 		cam_mat = cam_mat.cuda()
-
-		scene_coords = network(image.cuda()) 
+		depth_img = depth_img.reshape(image.shape)
+		scene_coords = network(image.cuda(), depth_img.cuda()) 
 
 		# calculate loss dependant on the mode
 

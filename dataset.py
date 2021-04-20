@@ -78,6 +78,10 @@ class CamLocDataset(Dataset):
 		self.rgb_files = os.listdir(rgb_dir)
 		self.rgb_files = [rgb_dir + f for f in self.rgb_files]
 		self.rgb_files.sort()
+		depth_dir = root_dir + '/depth/'
+		self.depth_files = os.listdir(depth_dir)
+		self.depth_files = [depth_dir + f for f in self.depth_files]
+		self.depth_files.sort()
 
 		self.image_transform = transforms.Compose([
 			transforms.ToPILImage(),
@@ -128,6 +132,7 @@ class CamLocDataset(Dataset):
 	def __getitem__(self, idx):
 
 		image = io.imread(self.rgb_files[idx])
+		depth_img = io.imread(self.depth_files[idx])
 
 		if len(image.shape) < 3:
 			image = color.gray2rgb(image)
@@ -161,7 +166,7 @@ class CamLocDataset(Dataset):
 			# augment input image
 			cur_image_transform = transforms.Compose([
 				transforms.ToPILImage(),
-				transforms.Resize(int(self.image_height * scale_factor)),
+				transforms.Resize(480),
 				transforms.Grayscale(),
 				transforms.ColorJitter(brightness=self.aug_brightness, contrast=self.aug_contrast),
 				transforms.ToTensor(),
@@ -171,7 +176,6 @@ class CamLocDataset(Dataset):
 					)
 			])
 			image = cur_image_transform(image)	
-
 			# scale focal length
 			focal_length *= scale_factor
 
@@ -256,4 +260,4 @@ class CamLocDataset(Dataset):
 
 			coords[:,:sc.shape[1],:sc.shape[2]] = sc
 
-		return image, pose, coords, focal_length, self.rgb_files[idx]
+		return image, pose, coords, focal_length, self.rgb_files[idx], depth_img.astype('int16')

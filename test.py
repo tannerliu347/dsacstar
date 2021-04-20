@@ -70,17 +70,18 @@ pct1 = 0
 
 with torch.no_grad():	
 
-	for image, gt_pose, init, focal_length, file in testset_loader:
+	for image, gt_pose, init, focal_length, file, depth_img in testset_loader:
 
 		focal_length = float(focal_length[0])
 		file = file[0].split('/')[-1] # remove path from file name
 		gt_pose = gt_pose[0]
 		image = image.cuda()
-
+		depth_img = depth_img.reshape(image.shape)
+		depth_img = depth_img.cuda()
 		start_time = time.time()
 
 		# predict scene coordinates and neural guidance
-		scene_coordinates = network(image)
+		scene_coordinates = network(image, depth_img)
 		scene_coordinates = scene_coordinates.cpu()
 
 		out_pose = torch.zeros((4, 4))

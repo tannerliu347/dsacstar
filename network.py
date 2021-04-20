@@ -18,7 +18,7 @@ class Network(nn.Module):
 		'''
 		super(Network, self).__init__()
 
-		self.conv1 = nn.Conv2d(1, 32, 3, 1, 1)
+		self.conv1 = nn.Conv2d(2, 32, 3, 1, 1)
 		self.conv2 = nn.Conv2d(32, 64, 3, 2, 1)
 		self.conv3 = nn.Conv2d(64, 128, 3, 2, 1)
 		self.conv4 = nn.Conv2d(128, (256,128)[tiny], 3, 2, 1)
@@ -47,14 +47,14 @@ class Network(nn.Module):
 		self.mean = mean.clone()
 		self.tiny = tiny
 
-	def forward(self, inputs):
+	def forward(self, img, depth):
 		'''
 		Forward pass.
 
 		inputs -- 4D data tensor (BxCxHxW)
 		'''
 
-		x = inputs
+		x = torch.cat((img, depth), 1)
 		x = F.relu(self.conv1(x))
 		x = F.relu(self.conv2(x))
 		x = F.relu(self.conv3(x))
