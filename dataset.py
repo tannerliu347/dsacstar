@@ -124,7 +124,7 @@ class CamLocDataset(Dataset):
 			for x in range(0, self.prediction_grid.shape[2]):
 				for y in range(0, self.prediction_grid.shape[1]):
 					self.prediction_grid[0, y, x] = x * Network.OUTPUT_SUBSAMPLE
-					self.prediction_grid[1, y, x] = y * Network.OUTPUT_SUBSAMPLE		
+					self.prediction_grid[1, y, x] = y * Network.OUTPUT_SUBSAMPLE
 
 	def __len__(self):
 		return len(self.rgb_files)
@@ -133,6 +133,10 @@ class CamLocDataset(Dataset):
 
 		image = io.imread(self.rgb_files[idx])
 		depth_img = io.imread(self.depth_files[idx])
+		depth_transform = transforms.Compose([
+			transforms.ToTensor()
+		])
+		depth_img = depth_transform(depth_img)
 
 		if len(image.shape) < 3:
 			image = color.gray2rgb(image)
@@ -160,7 +164,7 @@ class CamLocDataset(Dataset):
 
 		if self.augment:
 
-			scale_factor = random.uniform(self.aug_scale_min, self.aug_scale_max)
+			# scale_factor = random.uniform(self.aug_scale_min, self.aug_scale_max)
 			angle = random.uniform(-self.aug_rotation, self.aug_rotation)
 
 			# augment input image
@@ -177,7 +181,7 @@ class CamLocDataset(Dataset):
 			])
 			image = cur_image_transform(image)	
 			# scale focal length
-			focal_length *= scale_factor
+			# focal_length *= scale_factor
 
 			# rotate input image
 			def my_rot(t, angle, order, mode='constant'):
@@ -260,4 +264,4 @@ class CamLocDataset(Dataset):
 
 			coords[:,:sc.shape[1],:sc.shape[2]] = sc
 
-		return image, pose, coords, focal_length, self.rgb_files[idx], depth_img.astype('int16')
+		return image, pose, coords, focal_length, self.rgb_files[idx], depth_img

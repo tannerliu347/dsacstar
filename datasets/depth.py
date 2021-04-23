@@ -60,10 +60,10 @@ for rgb, depth in [(train_rgb, train_depth), (test_rgb, test_depth)]:
             
         output = prediction.cpu().numpy()
 
-        midas_depth = output
-        midas_depth = midas_depth.astype(np.uint16)
+        midas_depth = 1 - (output - output.min()) / (output.max() - output.min())
+
         fname = img_path.name
-        depth_filename = fname.split('.')[0] + '.depth.png'
+        depth_filename = fname.split('.')[0] + '.depth.tiff'
         save_path = depth/depth_filename
         print('saving depth file to {}'.format(str(save_path)))
         imageio.imwrite(str(save_path), midas_depth)

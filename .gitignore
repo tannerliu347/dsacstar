@@ -1,3 +1,4 @@
 datasets/12scene*
 datasets/nclt*
 models/
+network_output/nclt*

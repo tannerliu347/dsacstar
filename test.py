@@ -170,6 +170,7 @@ print('2cm2deg: %.1f%%' % (pct2 / len(rErrs) * 100))
 print('1cm1deg: %.1f%%' % (pct1 / len(rErrs) * 100))
 
 print("\nMedian Error: %.1fdeg, %.1fcm" % (rErrs[median_idx], tErrs[median_idx]))
+print("Mean Error: %.1fdeg, %.1fcm" % (sum(rErrs)/len(rErrs), sum(tErrs)/len(tErrs)))
 print("Avg. processing time: %4.1fms" % (avg_time * 1000))
 test_log.write('%f %f %f\n' % (rErrs[median_idx], tErrs[median_idx], avg_time))
 
