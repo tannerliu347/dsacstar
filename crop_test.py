@@ -135,6 +135,7 @@ class ScaleRecovery(nn.Module):
 
 def rel_to_depth(rel_depth):
     original_height, original_width = rel_depth.shape
+    # normalize relative depth
     cam_height = torch.tensor([1.350]).cuda()
     # / 2.57
     # K = np.array([[0.399, 0, 0.826, 0],
@@ -159,18 +160,20 @@ def rel_to_depth(rel_depth):
     relative_depth = torch.from_numpy(relative_depth)
     relative_depth = relative_depth.cuda()
     scale, ground_mask = scale_recovery(relative_depth, tensor_K, cam_height)
-    absolute_depth = (relative_depth * scale).cpu().numpy()
+    absolute_depth = (relative_depth * scale).cpu().numpy() 
+    # make faulty depth value 0
+    absolute_depth[absolute_depth > 70] = 0
     # Saving colormapped depth image
-    return absolute_depth
+    return absolute_depth * 1000 # mm
 
 def main(args):
     # Train
-    # src_folder = './undis_raw_train/rgb/'
-    # target_folder = './datasets/nclt/train/'
+    src_folder = './undis_raw_train/rgb/'
+    target_folder = './datasets/nclt/train/'
 
     # Test
-    src_folder = './undis_raw_test/rgb/'
-    target_folder = './datasets/nclt/test/'
+    # src_folder = './undis_raw_test/rgb/'
+    # target_folder = './datasets/nclt/test/'
 
     # midas load
     midas = torch.hub.load("intel-isl/MiDaS", "MiDaS")
@@ -197,10 +200,14 @@ def main(args):
                 align_corners=False,
             ).squeeze()
         output = prediction.cpu().numpy()
+        # normalize relative depth
+        output = (output - output.min()) / (output.max() - output.min())
         output[output==0] = 1e-5
         abs_depth_mm = rel_to_depth(output)
         # eye file
-        abs_depth_m = abs_depth_mm / 1000
+        abs_depth_m = abs_depth_mm / 1000 # TODO: change
+        # plt.matshow(abs_depth_m)
+        # plt.show()
         offsetX = 4
         offsetY = 4
         abs_depth_m = abs_depth_m[offsetY::8, offsetX::8]
@@ -216,15 +223,15 @@ def main(args):
         xy[1] += offsetY
         xy[0] -= img.shape[1] / 2 # before rotation
         xy[1] -= img.shape[2] / 2 # so flipped
-        focal_length = 341.78875220088753 # copied
+        focal_length = 242.69358015189874 # copied
         xy /= focal_length
         xy[0] *= abs_depth_m
         xy[1] *= abs_depth_m
 
-        eye = np.ndarray((4, abs_depth_m.shape[0], abs_depth_m.shape[1]))
+        eye = np.ndarray((3, abs_depth_m.shape[0], abs_depth_m.shape[1]))
         eye[0:2] = xy
         eye[2] = abs_depth_m
-        eye[3] = 1
+        #eye[3] = 1
         eye = eye.astype(np.float32)
         eyeTensor = torch.from_numpy(eye)
 
@@ -235,6 +242,7 @@ def main(args):
         imageio.imwrite(target_folder + '/depth/' + time_stamp + '.depth.tiff', abs_depth_mm)
         imageio.imwrite(target_folder + '/rgb/' + time_stamp + '.color.png', img)
         torch.save(eyeTensor, target_folder + '/eye/' + time_stamp + '.dat')
+        
         pbar.update(1)
     pbar.close()
 
